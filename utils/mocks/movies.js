@@ -135,6 +135,22 @@ const moviesMock = [{
   ]
 }]
 
+function filterMoviesMock(tags) {
+  return moviesMock.filter(movie => movie.tags.includes(tags))
+}
+
+class MoviesServiceMock {
+  async getMovies() {
+    return Promise.resolve(moviesMock)
+  }
+
+  async createMovie() {
+    return Promise.resolve(moviesMock[0])
+  }
+}
+
 module.exports = {
-  moviesMock
+  moviesMock,
+  filterMoviesMock,
+  MoviesServiceMock
 }
